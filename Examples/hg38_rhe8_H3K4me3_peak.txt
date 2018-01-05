@@ -1,4 +1,4 @@
 @human
-/home/jialu/evm/Human_Rhesus/GSE68507/RS_H3K4me3/human_Macs2_peaks.broadPeak.clean.bed
+/home/jialu/EpiEvolution/human_Macs2_peaks.broadPeak.clean.bed
 @rhesus
-/home/jialu/evm/Human_Rhesus/GSE68507/RS_H3K4me3/rhesus_Macs2_peaks.broadPeak.clean.bed
+/home/jialu/EpiEvolution/rhesus_Macs2_peaks.broadPeak.clean.bed

@@ -60,7 +60,7 @@ python InSiliconEvolution.py parameter.txt --seq_len=500 --seq_num=100 -o Simula
 
 ####Output
 
-The output file is a fastq-like file. Each region pair consists of 4(H+1) lines: 2(H+1) for species 1 and 2(H+1) for species 2. For each species, the first line contains sequence name, and the second line contains genomic sequence. The 3 to 2(H+1) lines are histone modification signals for the H histone marks, seperated by "+" lines. An example of the output file can be found [here]().
+The output file is a fastq-like file. Each region pair consists of 4(H+1) lines: 2(H+1) for species 1 and 2(H+1) for species 2. For each species, the first line contains sequence name, and the second line contains genomic sequence. The 3 to 2(H+1) lines are histone modification signals for the H histone marks, seperated by "+" lines. An example of the output file can be found [here](https://github.com/Zhong-Lab-UCSD/EpiEvolutionaryModel/blob/master/Examples/Simulation.txt).
 
 
 ### 2. Actual data
@@ -87,7 +87,7 @@ Name of histone modifications. Note that the list should have the same order as 
 
 **`--bg`**
 
-This file should contain paths to ChIP-Seq peak calling files (.bed files). An example can be found here.
+This file should contain paths to ChIP-Seq peak calling files (.bed files). An example can be found [here].
 
 **`--s_path`**
 
