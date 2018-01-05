@@ -87,7 +87,7 @@ Name of histone modifications. Note that the list should have the same order as 
 
 **`--bg`**
 
-This file should contain paths to ChIP-Seq peak calling files (.bed files). An example can be found [here].
+This file should contain paths to ChIP-Seq peak calling files (.bed files). An example can be found [here](https://github.com/Zhong-Lab-UCSD/EpiEvolutionaryModel/blob/master/Examples/hg38_rhe8_H3K4me3_peak.txt).
 
 **`--s_path`**
 
