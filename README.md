@@ -26,7 +26,7 @@ Simulation datasets can be generated based on corresponding hypotheses of the fo
 
 Name of the paramter file. The first and second lines are values for parameters _s_ and _μ_, followed by H lines containing H values for parameters _κ_<sub>1</sub>, _κ_<sub>2</sub>, ..., _κ_<sub>H</sub>. Line (H+3) includes _π_<sub>A</sub>, _π_<sub>C</sub>, _π_<sub>G</sub>, _π_<sub>T</sub>, followed by H lines containing _π_<sub>0</sub> and _π_<sub>1</sub> for H histone modifications.
 
-An example of the parameter file for one histone modificaion (H=1) can be found [here](https://github.com/Zhong-Lab-UCSD/EpiEvolutionaryModel/blob/master/parameter_ex.txt).
+An example of the parameter file for one histone modificaion (H=1) can be found [here](https://github.com/Zhong-Lab-UCSD/EpiEvolutionaryModel/blob/master/Examples/parameter_ex.txt).
 
 **`--seq_len`**
 
@@ -60,7 +60,7 @@ python InSiliconEvolution.py parameter.txt --seq_len=500 --seq_num=100 -o Simula
 
 ####Output
 
-The output file is a fastq-like file. Each region pair consists of 4(H+1) lines: 2(H+1) for species 1 and 2(H+1) for species 2. For each species, the first line contains sequence name, and the second line contains genomic sequence. The 3 to 2(H+1) lines are histone modification signals for the H histone marks, seperated by "+" lines. An example of the output file can be found here.
+The output file is a fastq-like file. Each region pair consists of 4(H+1) lines: 2(H+1) for species 1 and 2(H+1) for species 2. For each species, the first line contains sequence name, and the second line contains genomic sequence. The 3 to 2(H+1) lines are histone modification signals for the H histone marks, seperated by "+" lines. An example of the output file can be found [here]().
 
 
 ### 2. Actual data
