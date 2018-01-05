@@ -15,7 +15,7 @@ class Parameters():
 def ParseArg():
   p=argparse.ArgumentParser( description = "Generate simulation data under the indel-dependent hypothesis." )
   p.add_argument("input",type=str,help="parameter file")
-  p.add_argument("--seq_len",type=int, default=500, help="Length of the ancestoral sequence")
+  p.add_argument("--seq_len",type=int, default=500, help="Length of the ancestral sequence")
   p.add_argument("--seq_num",type=int, default=1000,help="Number of the sequence pairs")
   p.add_argument("--hypN",type=int, default=1, help="Use which hypothesis to generate the data. hyp=1: mutation-independent; hyp=2: mutation-dependent.")
   p.add_argument("-r","--ran_seed",type=int,help="Set random seed. The program will generate a random seed if not specified.")
