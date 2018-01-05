@@ -49,11 +49,11 @@ fin$group <- apply(fin[,2:(model_count+1)], 1, rgroup)
 fin$diff <- apply(fin[,2:(model_count+1)], 1, normdiff)
 
 nbase <- apply(fin[,2:(model_count+1)], 1, normbase)
-fin2 <-  fin
-fin2$cons_diff <- (fin2$MAP - fin2$MB)/abs(fin2$MAP + fin2$MB) 
-fin2$ind_diff <-  (fin2$MBP - fin2$MA)/abs(fin2$MBP + fin2$MA) 
+#fin2 <-  fin
+#fin2$cons_diff <- (fin2$MAP - fin2$MB)/abs(fin2$MAP + fin2$MB) 
+#fin2$ind_diff <-  (fin2$MBP - fin2$MA)/abs(fin2$MBP + fin2$MA) 
 #fin2[,2:(model_count+1)] <- ( fin2[,2:(model_count+1)] - apply(fin2[,2:(model_count+1)],1,mean) )/nbase
-fin2 <- fin2[order(-fin2$diff),]
+#fin2 <- fin2[order(-fin2$diff),]
 
 fsp1 <- read.table(args$species_1, header=FALSE, sep="\t", stringsAsFactors = F)
 fsp1 <- fsp1[,c(1:4)]
@@ -68,16 +68,16 @@ colnames(fsp2)[4] <- "peak_name"
 dir.create(args$output)
 setwd(args$output)
 write.table(fin, file="region_info.txt", sep="\t",quote=F,col.names=T,row.names=F)
-write.table(fin2, file="region_normalized.txt", sep="\t",quote=F,col.names=T,row.names=F)
+#write.table(fin2, file="region_normalized.txt", sep="\t",quote=F,col.names=T,row.names=F)
 
 
 Merge1 <- merge(fin, fsp1, by="peak_name")
 Merge2 <- merge(Merge1, fsp2, by="peak_name")
-if("MA" %in% model_name){
-	TypeA <- Merge2[which(Merge2$group=="MA"),]
+if("MI" %in% model_name){
+	TypeA <- Merge2[which(Merge2$group=="MI"),]
 	if(nrow(TypeA)>0){
 		TypeA <- subset(TypeA[order(-TypeA$diff),], select=-c(seq_name))
-		write.table(TypeA, file="TypeA.txt",sep="\t", quote=F, col.names=T,row.names=F)
+		write.table(TypeA, file="TypeI.txt",sep="\t", quote=F, col.names=T,row.names=F)
 	}
 }
 if("MB" %in% model_name){
@@ -87,33 +87,22 @@ if("MB" %in% model_name){
 		write.table(TypeB, file="TypeB.txt",sep="\t", quote=F, col.names=T,row.names=F)
 	}
 }
-if("MAP" %in% model_name){
-	TypeAP <- Merge2[which(Merge2$group=="MAP"),]
+if("MN" %in% model_name){
+	TypeAP <- Merge2[which(Merge2$group=="MN"),]
 	if(nrow(TypeAP)>0){
 		TypeAP <- subset(TypeAP[order(-TypeAP$diff),], select=-c(seq_name))
-		write.table(TypeAP, file="TypeAP.txt",sep="\t", quote=F, col.names=T,row.names=F)
+		write.table(TypeAP, file="TypeN.txt",sep="\t", quote=F, col.names=T,row.names=F)
 	}
 }
-if("MBP" %in% model_name){
-	TypeBP <- Merge2[which(Merge2$group=="MBP"),]
+if("MM" %in% model_name){
+	TypeBP <- Merge2[which(Merge2$group=="MM"),]
 	if(nrow(TypeBP)>0){
 		TypeBP <- subset(TypeBP[order(-TypeBP$diff),], select=-c(seq_name))
-		write.table(TypeBP, file="TypeBP.txt",sep="\t", quote=F, col.names=T,row.names=F)
+		write.table(TypeBP, file="TypeM.txt",sep="\t", quote=F, col.names=T,row.names=F)
 	}
 }
 
 
-#BedA1 <- TypeA[,c(apply(expand.grid(args$species[1],c("chr","start","end")),1,paste,collapse="_"), c("peak_name", "MA", "MB", "group", "diff"))]
-#BedA2 <- TypeA[,c(apply(expand.grid(args$species[2],c("chr","start","end")),1,paste,collapse="_"), c("peak_name", "MA", "MB", "group", "diff"))]
-#BedB1 <- TypeB[,c(apply(expand.grid(args$species[1],c("chr","start","end")),1,paste,collapse="_"), c("peak_name", "MA", "MB", "group", "diff"))]
-#BedB2 <- TypeB[,c(apply(expand.grid(args$species[2],c("chr","start","end")),1,paste,collapse="_"), c("peak_name", "MA", "MB", "group", "diff"))]
-
-
-
-#write.table(BedA1, file=paste(args$species[1],"_TypeA.bed",collapse="",sep=""), sep="\t", quote=F, col.names=F,row.names=F)
-#write.table(BedA2, file=paste(args$species[2],"_TypeA.bed",collapse="",sep=""), sep="\t", quote=F, col.names=F,row.names=F)
-#write.table(BedB1, file=paste(args$species[1],"_TypeB.bed",collapse="", sep=""), sep="\t", quote=F, col.names=F,row.names=F)
-#write.table(BedB2, file=paste(args$species[2],"_TypeB.bed",collapse="", sep=""), sep="\t", quote=F, col.names=F,row.names=F)
 
 
 

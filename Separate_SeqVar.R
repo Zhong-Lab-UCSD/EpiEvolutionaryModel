@@ -39,8 +39,8 @@ fin$MI <- apply(fin[,c(4,2)], 1, logsum, a=la)
 fin$MD <- apply(fin[,c(5,3)], 1, logsum, a=la)
 fin$II <- apply(fin[,c(4,5)], 1, logsum, a=lb)
 fin$ID <- apply(fin[,c(2,3)], 1, logsum, a=lb)
-fin$M_diff <- (fin$MI - fin$MD)/abs(fin$MI + fin$MD)
-fin$I_diff <- (fin$II - fin$ID)/abs(fin$II + fin$ID)
+fin$M_diff <- (fin$MD - fin$MI)/abs(fin$MI + fin$MD)
+fin$I_diff <- (fin$ID - fin$II)/abs(fin$II + fin$ID)
 fin <- fin[order(-fin$diff),]
 
 fout <- fin[,c("peak_name", "MI", "MD", "II", "ID", "group", "diff", "M_diff", "I_diff")]

@@ -12,7 +12,7 @@ def ParseArg():
   p.add_argument("q_region",type=str, nargs='+', help="Files containing coordinates of query regions in bed format. Note that the order should be the same as species.")
   p.add_argument("-s", "--species", nargs=2, type=str, default=["hg38","rheMac8"], help="A list of genome assembly. Note that the list should have the same order as the peak files")
   p.add_argument("-f","--fasta_path", type=str, default="/home/jialu/evm/Sequence", help="Path to the genome sequence files (.fa files).")
-  p.add_argument("--histone", nargs="+",type=str, default=["H3K4me3"], help="Name of histone modifications. Note that the list should have the same order as histone.")
+  p.add_argument("--histone", nargs="+",type=str, default=["H3K4me3"], help="Name of histone modifications. Note that the list should have the same order as peak files.")
   p.add_argument("--bg", type=str, help="File name. The file contains paths to ChIP-Seq peak calling files (.bed files).")
 #  p.add_argument("-t","--bg_cutoff", type=int, default=4, help="Cutoff for coverage")
   p.add_argument("--s_path",type=str, default="samtools", help="Path to samtools")
