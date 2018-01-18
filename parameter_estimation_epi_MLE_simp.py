@@ -287,7 +287,7 @@ def Manhattan_obj(x,S,fout):
   if min(x)<0:
     print >>sys.stderr, "minus p"
     return float("inf")
-  Transition_dic=Trans_matrix(len(S[0][0][0])-1, x)
+  Transition_dic=Trans_matrix(len(S[0].S1[0])-1, x)
 
   p=Pool(p_num)
   mp_queue=p.map(partial(Manhattan, X=x, trans_dic=Transition_dic),S)
@@ -324,7 +324,7 @@ def Main():
   x, equil_dict, log_equil_dict=ReadParameters(args.equil_file)
 
   global S_epi, log_S_epi
-  S_epi,log_S_epi=Epi_equilibrium(len(S[0][0][0])-1)
+  S_epi,log_S_epi=Epi_equilibrium(len(S[0].S1[0])-1)
 
   global iter_i
   iter_i=0
